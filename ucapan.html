@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semangat ya Budak kecik!</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(to bottom right, #f0f4f8, #e2e8f0);
+      }
+      .fade-in {
+        animation: fadeIn 1.5s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .typing::after {
+        content: "|";
+        animation: blink 1s infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      .glow:hover {
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+        transform: scale(1.02);
+        transition: 0.3s;
+      }
+      #secret-message {
+        display: none;
+        margin-top: 1.5rem;
+        background: #e0e7ff;
+        color: #3730a3;
+        padding: 1rem;
+        border-radius: 1rem;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen flex items-center justify-center px-4 py-10 font-sans text-gray-800"
+  >
+    <div
+      class="bg-white shadow-2xl rounded-3xl p-8 max-w-xl text-center fade-in"
+    >
+      <h1
+        id="typing"
+        class="text-3xl font-bold text-indigo-600 mb-4 typing"
+      ></h1>
+      <p class="text-lg leading-relaxed mb-6">
+        Hidup memang kadang berat, tapi kamu jauh lebih Berat dari yang kamu
+        kira awoakwok. Jangan biarkan hari buruk membuatmu lupa betapa luar
+        biasanya dirimu. Terus semangat ya pendek, kamu nggak sendiri
+      </p>
+      <div
+        class="bg-indigo-100 text-indigo-800 rounded-xl px-6 py-4 text-sm font-medium"
+      >
+        “Langit tetap biru meski tertutup awan. Kamu tetap hebat meski sedang
+        lelah.”
+      </div>
+
+      <div class="mt-6 space-y-4">
+        <button
+          onclick="showMessage()"
+          class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-xl glow"
+        >
+          Klik untuk semangat!
+        </button>
+        <button
+          onclick="revealSecret()"
+          class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-xl glow"
+        >
+          Buka Pesan Rahasia 💌
+        </button>
+      </div>
+
+      <div id="secret-message">
+        Aku mungkin nggak selalu ada secara fisik,Anjayyy tapi kamu harus tahu,
+        ada seseorang yang percaya sama kamu sepenuhnya. Kamu itu hebat,
+        unik,pendek pulak tu dan pantas bahagia Jangan menyerah ya, Budak Kecik,
+        awas tepijak.
+      </div>
+
+      <p class="mt-6 text-sm text-gray-500">
+        Dari seseorang yang peduli padamu
+      </p>
+    </div>
+
+    <script>
+      // Typing Effect
+      const message = "Hai, Budak Kecik 👋";
+      const typingEl = document.getElementById("typing");
+      let index = 0;
+
+      function typeText() {
+        if (index < message.length) {
+          typingEl.innerHTML += message.charAt(index);
+          index++;
+          setTimeout(typeText, 70);
+        } else {
+          typingEl.classList.remove("typing");
+        }
+      }
+
+      typeText();
+
+      // Button Alert
+      function showMessage() {
+        alert("Ayo semangat terus ya Budak Ketot! Kamu hebat 💪🌈");
+      }
+
+      // Reveal Secret
+      function revealSecret() {
+        const secret = document.getElementById("secret-message");
+        secret.style.display = "block";
+      }
+    </script>
+  </body>
+</html>
